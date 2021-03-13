@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+$moderateViolet: #7541c8;
+$veryDarkGrayishBlue: #48556a;
+$veryDarkBlackishBlue: #19212e;
+$white: #ffffff;
+$lightGray: #cfcfcf;
+$lightGrayishBlue: #ecf2f8;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: $lightGrayishBlue;
+  color: $white;
+}
+
+.main_wrapper {
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+
+  .card {
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+    z-index: 11;
+    background-color: $white;
+    box-shadow: 0 4px 12px rgba($color: $veryDarkBlackishBlue, $alpha: 0.1);
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .quotation_mark {
+      position: absolute;
+      top: 0;
+      right: 2rem;
+      z-index: -1;
+    }
+
+    .user_head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .user_img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-sizing: content-box;
+        border: 2px solid rgba($color: $lightGrayishBlue, $alpha: 0.5);
+      }
+
+      .verification {
+        z-index: 111;
+        color: rgba($color: $lightGrayishBlue, $alpha: 0.5);
+      }
+    }
+
+    .headline {
+      margin-bottom: 1rem;
+    }
+
+    .card_quote {
+      color: rgba($color: $lightGrayishBlue, $alpha: 0.5);
+      line-height: 1.2rem;
+    }
+  }
+
+  .card_purple {
+    background-color: $moderateViolet;
+  }
+  .card_grayishBlue {
+    background-color: $veryDarkGrayishBlue;
+  }
+  .card_blackishBlue {
+    background-color: $veryDarkBlackishBlue;
+  }
+  .card_white {
+    color: $veryDarkBlackishBlue;
+
+    &:last-child {
+      .user_head .user_img {
+        border-color: rgba($color: $moderateViolet, $alpha: 0.5);
+      }
+    }
+
+    .user_head {
+      .verification {
+        color: rgba($color: $veryDarkGrayishBlue, $alpha: 0.5);
+      }
+    }
+
+    .card_quote {
+      color: rgba($color: $veryDarkBlackishBlue, $alpha: 0.7);
+    }
+  }
+}
+
+@media (min-width: 575px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main_wrapper {
+    padding: 3rem 6rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "one one two five"
+      "three four four five";
+    grid-gap: 2rem;
+
+    .card {
+      margin-bottom: 0;
+
+      &:first-child {
+        grid-area: one;
+      }
+      &:nth-child(2) {
+        grid-area: two;
+      }
+      &:nth-child(3) {
+        grid-area: three;
+      }
+      &:nth-child(4) {
+        grid-area: four;
+      }
+      &:last-child {
+        grid-area: five;
+      }
+
+      .quotation_mark {
+        right: 5rem;
+      }
+    }
+  }
+}
